@@ -8,7 +8,7 @@
 
 
 /*#### |Begin| --> Секция - "Include" ########################################*/
-#include "../inc/Lib_A_SVPWM_space_vector_pwm.h"
+#include "Lib_A_SVPWM_space_vector_pwm.h"
 /*#### |End  | <-- Секция - "Include" ########################################*/
 
 
