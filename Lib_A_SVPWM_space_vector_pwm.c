@@ -21,7 +21,7 @@
 
 
 /*#### |Begin| --> Секция - "Прототипы локальных функций" ####################*/
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcBaseVect(
 	__SVPWM_FPT__ (*SinFunc) (__SVPWM_FPT__),
 	__SVPWM_FPT__ *baseVect_1,
@@ -29,7 +29,7 @@ SVPWM_CalcBaseVect(
 	__SVPWM_FPT__ electAngle,
 	__SVPWM_FPT__ vectAmplit);
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector1(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -37,7 +37,7 @@ SVPWM_CalcPWMDutyCycle_Sector1(
 	__SVPWM_FPT__ *pPhase_B_DutyCycle,
 	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector2(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -45,7 +45,7 @@ SVPWM_CalcPWMDutyCycle_Sector2(
 	__SVPWM_FPT__ *pPhase_B_DutyCycle,
 	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector3(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -53,7 +53,7 @@ SVPWM_CalcPWMDutyCycle_Sector3(
 	__SVPWM_FPT__ *pPhase_B_DutyCycle,
 	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector4(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -61,7 +61,7 @@ SVPWM_CalcPWMDutyCycle_Sector4(
 	__SVPWM_FPT__ *pPhase_B_DutyCycle,
 	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcRelativEnTime_Sector5(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -69,7 +69,7 @@ SVPWM_CalcRelativEnTime_Sector5(
 	__SVPWM_FPT__ *pPhase_B_DutyCycle,
 	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector6(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -104,13 +104,15 @@ SVPWM_CalcPWMDutyCycle_Sector6(
  *
  * @return	None
  */
-void SVPWM_GetPhasesEnTime(
+void
+SVPWM_GetPhasesEnTime(
 	__SVPWM_FPT__ (*SinFunc) (__SVPWM_FPT__),
 	__SVPWM_FPT__ desiredElectAngle,
 	__SVPWM_FPT__ desiredVectAmplit,
 	svpwm_duty_cycle_s *pPWMDutyCycles_s)
 {
 	__SVPWM_FPT__ baseVect_1, baseVect_2;
+	pPWMDutyCycles_s->fnc_status_e = SVPWM_OK;
 
 	/* Если заданный электрический угол находится в одном из 1-3 сектор
 	 * включительно */
@@ -133,6 +135,8 @@ void SVPWM_GetPhasesEnTime(
 				&pPWMDutyCycles_s->phase_A,
 				&pPWMDutyCycles_s->phase_B,
 				&pPWMDutyCycles_s->phase_C);
+
+			return;
 		}
 		/* 2-й сектор */
 		else if ((desiredElectAngle < SVPWM_120_DEG_IN_RAD)
@@ -151,6 +155,8 @@ void SVPWM_GetPhasesEnTime(
 				&pPWMDutyCycles_s->phase_A,
 				&pPWMDutyCycles_s->phase_B,
 				&pPWMDutyCycles_s->phase_C);
+
+			return;
 		}
 		/* 1-й сектор */
 		else if ((desiredElectAngle < SVPWM_60_DEG_IN_RAD)
@@ -169,6 +175,8 @@ void SVPWM_GetPhasesEnTime(
 				&pPWMDutyCycles_s->phase_A,
 				&pPWMDutyCycles_s->phase_B,
 				&pPWMDutyCycles_s->phase_C);
+
+			return;
 		}
 	}
 	/* Иначе, находится в одном из 4-6 сектор включительно */
@@ -191,6 +199,8 @@ void SVPWM_GetPhasesEnTime(
 				&pPWMDutyCycles_s->phase_A,
 				&pPWMDutyCycles_s->phase_B,
 				&pPWMDutyCycles_s->phase_C);
+
+			return;
 		}
 		/* 5-й сектор */
 		else if ((desiredElectAngle < SVPWM_300_DEG_IN_RAD)
@@ -209,6 +219,8 @@ void SVPWM_GetPhasesEnTime(
 				&pPWMDutyCycles_s->phase_A,
 				&pPWMDutyCycles_s->phase_B,
 				&pPWMDutyCycles_s->phase_C);
+
+			return;
 		}
 		/* 6-й сектор */
 		else if ((desiredElectAngle < SVPWM_360_DEG_IN_RAD)
@@ -227,11 +239,19 @@ void SVPWM_GetPhasesEnTime(
 				&pPWMDutyCycles_s->phase_A,
 				&pPWMDutyCycles_s->phase_B,
 				&pPWMDutyCycles_s->phase_C);
+
+			return;
 		}
 	}
+
+	/* Если заданный угол находится вне допустимого диапазона */
+	pPWMDutyCycles_s->fnc_status_e = SVPWM_ANGLE_NOT_IN_RANGE;
+	pPWMDutyCycles_s->phase_A = (__SVPWM_FPT__) 0.0;
+	pPWMDutyCycles_s->phase_B = (__SVPWM_FPT__) 0.0;
+	pPWMDutyCycles_s->phase_C = (__SVPWM_FPT__) 0.0;
 }
 
-static void
+__SVPWM_STATIC_INLINE  void
 SVPWM_CalcBaseVect(
 	__SVPWM_FPT__ (*SinFunc) (__SVPWM_FPT__),
 	__SVPWM_FPT__ *baseVect_1,
@@ -245,7 +265,7 @@ SVPWM_CalcBaseVect(
 		vectAmplit * SinFunc(electAngle);
 }
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector1(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -264,7 +284,7 @@ SVPWM_CalcPWMDutyCycle_Sector1(
 		baseVect_0 * (__SVPWM_FPT__) 0.5;
 }
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector2(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -283,7 +303,7 @@ SVPWM_CalcPWMDutyCycle_Sector2(
 		baseVect_0 * (__SVPWM_FPT__) 0.5;
 }
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector3(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -300,10 +320,9 @@ SVPWM_CalcPWMDutyCycle_Sector3(
 		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 	*pPhase_C_DutyCycle =
 		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_2;
-
 }
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector4(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -322,7 +341,7 @@ SVPWM_CalcPWMDutyCycle_Sector4(
 		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 }
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcRelativEnTime_Sector5(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,
@@ -341,7 +360,7 @@ SVPWM_CalcRelativEnTime_Sector5(
 		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 }
 
-static void
+__SVPWM_STATIC_INLINE void
 SVPWM_CalcPWMDutyCycle_Sector6(
 	__SVPWM_FPT__ baseVect_1,
 	__SVPWM_FPT__ baseVect_2,

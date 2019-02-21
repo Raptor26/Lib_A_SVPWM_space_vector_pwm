@@ -42,6 +42,14 @@
 #endif
 /* |End  | <-- Секция определения типа числа с плавающей точкой ============= */
 
+#if defined (__GNUC__)
+  #define __SVPWM_INLINE         inline                                     /*!< inline keyword for GNU Compiler */
+  #define __SVPWM_STATIC_INLINE  static inline
+#else
+ #define __SVPWM_INLINE
+ #define __SVPWM_STATIC_INLINE	static
+#endif
+
 #define SVPWM_60_DEG_IN_RAD			((__SVPWM_FPT__)(1.0471975511965977461542144610932))
 #define SVPWM_90_DEG_IN_RAD			((__SVPWM_FPT__)(1.5707963267948966192313216916398))
 #define SVPWM_120_DEG_IN_RAD		((__SVPWM_FPT__)(2.0943951023931954923084289221863))
@@ -58,11 +66,20 @@
 
 
 /*#### |Begin| --> Секция - "Определение типов" ##############################*/
+typedef enum
+{
+	SVPWM_ERROR = 0,
+	SVPWM_ANGLE_NOT_IN_RANGE,
+	SVPWM_OK,
+} svpwm_fnc_status_e;
+
 typedef struct
 {
 	__SVPWM_FPT__ 	phase_A,
 					phase_B,
 					phase_C;
+
+	svpwm_fnc_status_e fnc_status_e;
 } svpwm_duty_cycle_s;
 /*#### |End  | <-- Секция - "Определение типов" ##############################*/
 
