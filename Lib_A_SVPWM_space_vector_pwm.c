@@ -23,59 +23,59 @@
 /*#### |Begin| --> Секция - "Прототипы локальных функций" ####################*/
 static void
 SVPWM_CalcBaseVect(
-	SVPWM_FLOAT_POINT_TYPE (*SinFunc) (SVPWM_FLOAT_POINT_TYPE),
-	SVPWM_FLOAT_POINT_TYPE *baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE *baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE electAngle,
-	SVPWM_FLOAT_POINT_TYPE vectAmplit);
+	__SVPWM_FPT__ (*SinFunc) (__SVPWM_FPT__),
+	__SVPWM_FPT__ *baseVect_1,
+	__SVPWM_FPT__ *baseVect_2,
+	__SVPWM_FPT__ electAngle,
+	__SVPWM_FPT__ vectAmplit);
 
 static void
 SVPWM_CalcPWMDutyCycle_Sector1(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle);
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
 static void
 SVPWM_CalcPWMDutyCycle_Sector2(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle);
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
 static void
 SVPWM_CalcPWMDutyCycle_Sector3(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle);
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
 static void
 SVPWM_CalcPWMDutyCycle_Sector4(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle);
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
 static void
 SVPWM_CalcRelativEnTime_Sector5(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle);
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 
 static void
 SVPWM_CalcPWMDutyCycle_Sector6(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle);
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle);
 /*#### |End  | <-- Секция - "Прототипы локальных функций" ####################*/
 
 
@@ -96,23 +96,23 @@ SVPWM_CalcPWMDutyCycle_Sector6(
  *
  * @param[in]	(*SinFunc):	Указатель на функцию нахождения синуса угла в радианах
  * @param[in] 	desiredElectAngle:	Электрический угол, в который необходимо установить
- * 									вектор тока в диапазоне от "0" до "2*PI"
- * @param[in] 	desiredVectAmplit: 	Амплитуда вектора тока в промежутке от "0" до "1"
+ * 									вектор тока (в диапазоне от "0" до "2*PI")
+ * @param[in] 	desiredVectAmplit: 	Амплитуда вектора тока (в диапазоне от "0" до "1")
  * @param[out] 	*pPWMDutyCycles_s:	Указатель на структуру, в которую будут
  * 									записан коэффициент заполнения ШИМ для
  * 									3-х фаз электродвигателя
  *
  * @return	None
  */
-void SVPWM_GetPhasesEnTime (
-	SVPWM_FLOAT_POINT_TYPE (*SinFunc) (SVPWM_FLOAT_POINT_TYPE),
-	SVPWM_FLOAT_POINT_TYPE desiredElectAngle,
-	SVPWM_FLOAT_POINT_TYPE desiredVectAmplit,
+void SVPWM_GetPhasesEnTime(
+	__SVPWM_FPT__ (*SinFunc) (__SVPWM_FPT__),
+	__SVPWM_FPT__ desiredElectAngle,
+	__SVPWM_FPT__ desiredVectAmplit,
 	svpwm_duty_cycle_s *pPWMDutyCycles_s)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_1, baseVect_2;
+	__SVPWM_FPT__ baseVect_1, baseVect_2;
 
-	/* Если желаемый электрический угол находится в одном из 1-3 сектор
+	/* Если заданный электрический угол находится в одном из 1-3 сектор
 	 * включительно */
 	if (desiredElectAngle <= SVPWM_180_DEG_IN_RAD)
 	{
@@ -231,12 +231,13 @@ void SVPWM_GetPhasesEnTime (
 	}
 }
 
-void SVPWM_CalcBaseVect (
-	SVPWM_FLOAT_POINT_TYPE (*SinFunc) (SVPWM_FLOAT_POINT_TYPE),
-	SVPWM_FLOAT_POINT_TYPE *baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE *baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE electAngle,
-	SVPWM_FLOAT_POINT_TYPE vectAmplit)
+static void
+SVPWM_CalcBaseVect(
+	__SVPWM_FPT__ (*SinFunc) (__SVPWM_FPT__),
+	__SVPWM_FPT__ *baseVect_1,
+	__SVPWM_FPT__ *baseVect_2,
+	__SVPWM_FPT__ electAngle,
+	__SVPWM_FPT__ vectAmplit)
 {
 	*baseVect_1 =
 		vectAmplit * SinFunc(SVPWM_60_DEG_IN_RAD - electAngle);
@@ -244,113 +245,119 @@ void SVPWM_CalcBaseVect (
 		vectAmplit * SinFunc(electAngle);
 }
 
-void SVPWM_CalcPWMDutyCycle_Sector1(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle)
+static void
+SVPWM_CalcPWMDutyCycle_Sector1(
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_0 =
+	__SVPWM_FPT__ baseVect_0 =
 		SVPWM_MAX_VECT_VALUE - baseVect_1 - baseVect_2;
 
 	*pPhase_A_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1 + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 	*pPhase_B_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_2;
 	*pPhase_C_DutyCycle =
-		baseVect_0 * 0.5f;
+		baseVect_0 * (__SVPWM_FPT__) 0.5;
 }
 
-void SVPWM_CalcPWMDutyCycle_Sector2(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle)
+static void
+SVPWM_CalcPWMDutyCycle_Sector2(
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_0 =
+	__SVPWM_FPT__ baseVect_0 =
 		SVPWM_MAX_VECT_VALUE - baseVect_1 - baseVect_2;
 
 	*pPhase_A_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1;
 	*pPhase_B_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1 + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 	*pPhase_C_DutyCycle =
-		baseVect_0 * 0.5f;
+		baseVect_0 * (__SVPWM_FPT__) 0.5;
 }
 
-void SVPWM_CalcPWMDutyCycle_Sector3(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle)
+static void
+SVPWM_CalcPWMDutyCycle_Sector3(
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_0 =
+	__SVPWM_FPT__ baseVect_0 =
 		SVPWM_MAX_VECT_VALUE - baseVect_1 - baseVect_2;
 
 	*pPhase_A_DutyCycle =
-		baseVect_0 * 0.5f;
+		baseVect_0 * (__SVPWM_FPT__) 0.5;
 	*pPhase_B_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1 + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 	*pPhase_C_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_2;
 
 }
 
-void SVPWM_CalcPWMDutyCycle_Sector4(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle)
+static void
+SVPWM_CalcPWMDutyCycle_Sector4(
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_0 =
+	__SVPWM_FPT__ baseVect_0 =
 		SVPWM_MAX_VECT_VALUE - baseVect_1 - baseVect_2;
 
 	*pPhase_A_DutyCycle =
-		baseVect_0 * 0.5f;
+		baseVect_0 * (__SVPWM_FPT__) 0.5;
 	*pPhase_B_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1;
 	*pPhase_C_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1 + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 }
 
-void SVPWM_CalcRelativEnTime_Sector5(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle)
+static void
+SVPWM_CalcRelativEnTime_Sector5(
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_0 =
+	__SVPWM_FPT__ baseVect_0 =
 		SVPWM_MAX_VECT_VALUE - baseVect_1 - baseVect_2;
 
 	*pPhase_A_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_2;
 	*pPhase_B_DutyCycle =
-		baseVect_0 * 0.5f;
+		baseVect_0 * (__SVPWM_FPT__) 0.5;
 	*pPhase_C_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1 + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 }
 
-void SVPWM_CalcPWMDutyCycle_Sector6(
-	SVPWM_FLOAT_POINT_TYPE baseVect_1,
-	SVPWM_FLOAT_POINT_TYPE baseVect_2,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_A_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_B_DutyCycle,
-	SVPWM_FLOAT_POINT_TYPE *pPhase_C_DutyCycle)
+static void
+SVPWM_CalcPWMDutyCycle_Sector6(
+	__SVPWM_FPT__ baseVect_1,
+	__SVPWM_FPT__ baseVect_2,
+	__SVPWM_FPT__ *pPhase_A_DutyCycle,
+	__SVPWM_FPT__ *pPhase_B_DutyCycle,
+	__SVPWM_FPT__ *pPhase_C_DutyCycle)
 {
-	SVPWM_FLOAT_POINT_TYPE baseVect_0 =
+	__SVPWM_FPT__ baseVect_0 =
 		SVPWM_MAX_VECT_VALUE - baseVect_1 - baseVect_2;
 
 	*pPhase_A_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1 + baseVect_2;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1 + baseVect_2;
 	*pPhase_B_DutyCycle =
-		(baseVect_0 * 0.5f);
+		(baseVect_0 * (__SVPWM_FPT__) 0.5);
 	*pPhase_C_DutyCycle =
-		(baseVect_0 * 0.5f) + baseVect_1;
+		(baseVect_0 * (__SVPWM_FPT__) 0.5) + baseVect_1;
 }
 /*#### |End  | <-- Секция - "Описание глобальных функций" ####################*/
 
