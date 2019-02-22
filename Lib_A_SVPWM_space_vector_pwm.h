@@ -1,8 +1,8 @@
 /**
  * @file   	Lib_A_SVPWM_space_vector_pwm.h
  * @author 	Isaev Mickle
- * @version	beta
- * @date 	07.05.2018
+ * @version	V_1.0.0
+ * @date 	22.02.2019
  * @brief	Библиотека реализует векторный ШИМ
  */
 
@@ -43,7 +43,7 @@
 /* |End  | <-- Секция определения типа числа с плавающей точкой ============= */
 
 #if defined (__GNUC__)
-  #define __SVPWM_INLINE         inline                                     /*!< inline keyword for GNU Compiler */
+  #define __SVPWM_INLINE         inline
   #define __SVPWM_STATIC_INLINE  static inline
 #else
  #define __SVPWM_INLINE

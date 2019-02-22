@@ -1,7 +1,7 @@
 /**
  * @file   	Lib_A_SVPWM_space_vector_pwm.c
  * @author 	Isaev Mickle
- * @version	beta
+ * @version	V_1.0.0
  * @date 	07.05.2018
  * @brief	Библиотека реализует векторный ШИМ
  */
